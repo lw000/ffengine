@@ -7,3 +7,4 @@ aux_source_directory(./coremodule DIR_LUAENGINT_SRCSS)
 add_compile_options(-std=c++11)
 
 add_library(luaengine ${DIR_LUAENGINT_SRCSS})
+target_link_libraries(luaengine common)
