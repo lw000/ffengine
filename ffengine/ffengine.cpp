@@ -6,12 +6,31 @@
 #include "../network/network.h"
 #include "../luaengine/luaengine.h"
 
+#include <functional>
+
 Network network;
 LuaEngine engine;
 Logger logger;
 
+//typedef std::function<void()> Functor;
+
+using Functor = std::function<void()>;
+
+Functor test(const std::string& v) {
+	std::string s(v);
+	return [=]() {
+		std::cout << s << std::endl;
+	};
+}
+
+#define EXEC_FUNCTOR(v) (test(v)())
+
 int main()
 {
+	test("this is functor")();
+
+	EXEC_FUNCTOR("this is functor");
+
 	logger.start();
 	network.start();
 	if (engine.start())
