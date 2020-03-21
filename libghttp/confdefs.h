@@ -1,0 +1,7 @@
+
+#define GHTTP_MAJOR_VERSION 1
+#define GHTTP_MINOR_VERSION 0
+#define GHTTP_MICRO_VERSION 9
+#define PACKAGE "libghttp"
+#define VERSION "1.0.9"
+#define STDC_HEADERS 1

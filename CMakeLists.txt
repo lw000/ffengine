@@ -6,22 +6,26 @@ cmake_minimum_required (VERSION 3.8)
 project ("ffengine")
 
 include_directories(
-	/usr/include
-	/usr/local/include
 	ffengine
 	network
 	luaengine
 	lua
 	logger
 	common
+	hooks
+	packet
+	libghttp
 )
 
 set(CMAKE_CXX_STANDARD 11)
 
 # 包含子项目。
-add_subdirectory (ffengine)
+add_subdirectory(ffengine)
 add_subdirectory(network)
 add_subdirectory(luaengine)
 add_subdirectory(lua)
 add_subdirectory(common)
 add_subdirectory(logger)
+add_subdirectory(hooks)
+add_subdirectory(packet)
+add_subdirectory(libghttp)
