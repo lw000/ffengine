@@ -10,6 +10,6 @@ add_executable (ffengine ${SOURCE_FILES})
 
 #link_directories(${PROJECT_SOURCE_DIR}/lib) #添加动态连接库的路径
 
-target_link_libraries(ffengine ghttp network luaengine logger lua common hooks packet)
+target_link_libraries(ffengine ghttp network hooks luaengine logger lua common hooks packet)
 
 # TODO: 如有需要，请添加测试并安装目标。

@@ -6,6 +6,7 @@
 #include "../network/network.h"
 #include "../luaengine/luaengine.h"
 #include "../libghttp/ghttp.h"
+#include "../hooks/hooks.h"
 #include <functional>
 #include <string.h>
 
@@ -15,9 +16,9 @@ Logger logger;
 
 //typedef std::function<void()> Functor;
 
-using Functor = std::function<void()>;
+using Functor1 = std::function<void()>;
 
-Functor test(const std::string& v) {
+Functor1 test(const std::string& v) {
 	std::string s(v);
 	return [=]() {
 		std::cout << s << std::endl;
@@ -63,6 +64,12 @@ int main()
 	EXEC_FUNCTOR("this is functor");
 
     test_http();
+
+    message_t t;
+    t.mid = 100;
+    t.sid = 100;
+    t.msg = "123123123";
+    checkMessage()(&t);
 
 	logger.start();
 	network.start();
